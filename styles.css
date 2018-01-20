@@ -1,0 +1,15 @@
+.generatedRow {
+	margin: 0.5em;
+	/* border: 1px black solid; */
+}
+.generatedImg {
+	align-self: center;
+}
+
+.member {
+	margin: 0.5em;
+}
+
+.followers {
+	margin: 0.3em;
+}
