@@ -1,6 +1,6 @@
 .generatedRow {
 	margin: 0.5em;
-	/* border: 1px black solid; */
+	border: 1px black solid;
 }
 .generatedImg {
 	align-self: center;
@@ -13,3 +13,4 @@
 .followers {
 	margin: 0.3em;
 }
+

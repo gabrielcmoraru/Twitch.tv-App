@@ -31,17 +31,17 @@ function refresh(){
 					 + name +
 					 "'></div><div class='col'><h2>"
 					 + display_name +
-					 "</h2><cite>"
+					 "</h2><cite class='hs'>"
 					 + status +
-					 "</cite></div><div><div class='row-12 row-lg-4 member'><strong>Member Since: </strong>"
+					 "</cite></div><div><div class='row-12 row-lg-4 hs'><strong>Member Since: </strong>"
 					 + memberSince +
 					 "</div><div class='row-12 row-lg-4'><strong>Lastseen: </strong>"
 					 + seen +
-					 "</div></div></div><div class='row text-center followers'><div class='col'><strong>Followers: </strong>"
+					 "</div></div></div><div class='row text-center'><div class='col hs'><strong>Followers: </strong>"
 					 + followers +
-					  "</div><div class='col'><button type='button' class='btn btn-sm btn-danger'><a href='"
+					  "</div><div class='col'><button type='button' class='btn btn-sm btn-danger small'><a href='"
 					 + url +
-					  "' target='_blank' class='nav-item text-white'>OFFLINE</a></button></div><div class='col'><strong><i class='fa fa-eye'  aria-hidden='true'></i> Views: </strong>"
+					  "' target='_blank' class='nav-item text-white'>OFFLINE</a></button></div><div class='col hs'><strong><i class='fa fa-eye'  aria-hidden='true'></i> Views: </strong>"
 					 + views +
 					   "</div></div></div>");
 					})
@@ -68,24 +68,24 @@ function refresh(){
 					+ sName +
 					"'></div><div class='col'><h2>"
 					+ sDisplay_name +
-					"</h2><cite>"
+					"</h2><cite class='hs'>"
 					+ sStatus +
-					"</cite><h3>Playing: </h3><blockqoute>"
+					"</cite><h3 class='hs'>Playing: </h3><blockqoute>"
 					+ sGame +
-					"</blockqoute><h4>Live since: </h4><blockqoute>"
+					"</blockqoute><h4 class='hs'>Live since: </h4><blockqoute class='hs'>"
 					+ sLiveSince +
-					"</blockqoute></div><div class='col-12 col-md-4 col-lg-4'><div class='row'><img class='img-fluid img-thumbnail mx-auto' src='"
+					"</blockqoute></div><div class='col-12 col-md-4 col-lg-4'><div class='row'><img class=' hs img-fluid img-thumbnail mx-auto' src='"
 					+ sLivePreview +
 					 "' alt='"
 					+ sName +
-					 "'></div><div class='row member'><p><i class='fa fa-eye' aria-hidden='true'></i><strong> LIVE</strong> | Viewers: "
+					 "'></div><div class='row'><p><i class='fa fa-eye' aria-hidden='true'></i><strong> LIVE</strong> | Viewers: "
 					+ sLiveViewers + "</p><div class='col'><p><i class='fa fa-film' aria-hidden='true'></i> "
 					+ sFps +
-					" <strong>FPS</strong></p></div></div></div<div class='col-lg-2 col-md-4 col-5'></div></div><div class='row text-center followers'><div class='col'><strong>Followers: </strong>"
+					" <strong>FPS</strong></p></div></div></div<div class='col-lg-2 col-md-4 col-5'></div></div><div class='row text-center'><div class='col hs'><strong>Followers: </strong>"
 					+ sFollowers +
 					"</div><div class='col'><button type='button' class='btn btn-sm btn-primary'><a href='"
 					+ sUrl +
-					"' target='_blank' class='nav-item text-white'>WATCH ONLINE NOW</a></button></div><div class='col'><strong><i class='fa fa-eye' aria-hidden='true'></i> Views: </strong>"
+					"' target='_blank' class='nav-item text-white'>WATCH ONLINE NOW</a></button></div><div class='col hs'><strong><i class='fa fa-eye' aria-hidden='true'></i> Views: </strong>"
 					+ sViews +
 					"</div></div></div>");
 			}
@@ -95,18 +95,21 @@ function refresh(){
 }
 
 //On page load run refresh()
-$(document).ready(refresh);
+$(document).ready(function(){
+	refresh();
+	$
+});
 
 //Online button On click Filter offline, hide offline and show online
-$('.btn-outline-warning').click(function(conent){
-	$('.offline').filter(function(offline) {
+$('.btn-warning').click(function(online){
+	$('.offline').filter(function(online) {
 		$('.offline').hide('slow');
 		});
 	$('.online').show('slow');
 });
 
 //Offline button On click Filter online, hide online and show offline
-$('.btn-outline-danger').click(function(online){
+$('.btn-danger').click(function(offlinne){
 	$('.online').filter(function(offline) {
 		$('.online').hide('slow');
 		});
@@ -114,7 +117,25 @@ $('.btn-outline-danger').click(function(online){
 });
 
 //All button On click show online and offline
-$('.btn-outline-dark').click(function(online){
-	$('.offline').show('slow/200');
-	$('.online').show('slow/200');
+$('.btn-dark').click(function(all){
+	$('.offline').slideDown('slow');
+	$('.online').slideDown('slow');
 });
+
+//Show more/less info
+$('.btn-info').click(function(onoff){
+
+	if($('.btn-info').is('.active')){
+		$('.generatedImg').css('width','50%');
+		$('.hs').slideToggle('slow');
+		$('.btn-info').html('Less <i class="fa fa-eye" aria-hidden="true"></i>');
+		$('.btn-info').removeClass('active');
+	}
+	else {
+		$('.btn-info').addClass('active');
+		$('.generatedImg').css('width','100%');
+		$('.hs').slideToggle('slow');
+		$('.btn-info').html('More <i class="fa fa-eye" aria-hidden="true"></i>');}
+});
+
+
