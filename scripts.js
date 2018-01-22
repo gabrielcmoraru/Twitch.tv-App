@@ -128,14 +128,14 @@ $('.btn-info').click(function(onoff){
 	if($('.btn-info').is('.active')){
 		$('.generatedImg').css('width','50%');
 		$('.hs').slideToggle('slow');
-		$('.btn-info').html('MORE <i class="fa fa-eye" aria-hidden="true"></i>');
+		$('.btn-info').html('<i class="fa fa-arrow-down" aria-hidden="true"></i>');
 		$('.btn-info').removeClass('active');
 	}
 	else {
 		$('.btn-info').addClass('active');
 		$('.generatedImg').css('width','100%');
 		$('.hs').slideToggle('slow');
-		$('.btn-info').html('LESS <i class="fa fa-eye" aria-hidden="true"></i>');}
+		$('.btn-info').html('<i class="fa fa-arrow-up" aria-hidden="true"></i>');}
 });
 
 
